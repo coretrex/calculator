@@ -126,7 +126,7 @@ body{
 .toggle-icon{font-weight:700; font-size:22px}
 .metrics-subtext{color:var(--muted); margin:6px 0 14px}
 
-.button-container{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); margin:24px 0}
+.button-container{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); margin:24px 0 8px}
 button{
   padding:16px 24px; border:2px solid var(--outline); border-radius:8px; 
   background:transparent; color:var(--text); font-weight:600; cursor:pointer;
@@ -174,7 +174,7 @@ button{
 
 /* Consulting Section */
 .consulting-section{
-  background:var(--card); border:1px solid var(--outline); margin:40px 20px 20px;
+  background:var(--card); border:1px solid var(--outline); margin:16px 20px 20px;
   padding:32px 24px; border-radius:12px; text-align:center;
 }
 .team-image{
