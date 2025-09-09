@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Amazon Growth Calculator • CoreTrex</title>
+  <meta name="description" content="Estimate page views, ad spend, and TACoS to hit your Amazon revenue goal.">
+  <meta property="og:title" content="Amazon Growth Calculator • CoreTrex">
+  <meta property="og:description" content="Estimate page views, ad spend, and TACoS to hit your Amazon revenue goal.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+  <!-- Chart Background Effect -->
+  <div class="chart-bg">
+    <div class="mini-chart chart-1">
+      <svg viewBox="0 0 100 60">
+        <path d="M10,50 L20,45 L30,40 L40,35 L50,30 L60,25 L70,20 L80,15 L90,10" />
+      </svg>
+    </div>
+    <div class="mini-chart chart-2">
+      <svg viewBox="0 0 100 60">
+        <path d="M10,50 L25,40 L40,30 L55,20 L70,10" />
+      </svg>
+    </div>
+    <div class="mini-chart chart-3">
+      <svg viewBox="0 0 100 60">
+        <path d="M10,50 L15,45 L20,40 L25,35 L30,30 L35,25 L40,20 L45,15 L50,10" />
+      </svg>
+    </div>
+    <div class="mini-chart chart-4">
+      <svg viewBox="0 0 100 60">
+        <path d="M10,50 L30,35 L50,20 L70,10" />
+      </svg>
+    </div>
+    <div class="mini-chart chart-5">
+      <svg viewBox="0 0 100 60">
+        <path d="M10,50 L20,45 L30,40 L40,35 L50,30 L60,25 L70,20 L80,15 L90,10" />
+      </svg>
+    </div>
+    <div class="mini-chart chart-6">
+      <svg viewBox="0 0 100 60">
+        <path d="M10,50 L25,40 L40,30 L55,20 L70,10" />
+      </svg>
+    </div>
+    <div class="mini-chart chart-7">
+      <svg viewBox="0 0 100 60">
+        <path d="M10,50 L15,45 L20,40 L25,35 L30,30 L35,25 L40,20 L45,15 L50,10" />
+      </svg>
+    </div>
+    <div class="mini-chart chart-8">
+      <svg viewBox="0 0 100 60">
+        <path d="M10,50 L30,35 L50,20 L70,10" />
+      </svg>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="header-content">
+      <img src="coretrex_logo.png" alt="CoreTrex Logo" class="header-logo" />
+      <h1>Growth Calculator</h1>
+      <a href="https://calendly.com/coretrex/intro" class="schedule-btn" target="_blank" rel="noopener noreferrer">Schedule Call →</a>
+    </div>
+    <p class="subtext">Quickly estimate page views, paid vs organic mix, ad spend & TACoS required to hit your revenue goal.</p>
+  </header>
+
+  <main class="container">
+    <section class="input-container" aria-label="Core Inputs">
+      <div class="input-box">
+        <label for="revenueGoal">Annual Revenue Goal ($) <span class="tooltip-icon" data-tooltip="revenueGoal">ℹ</span></label>
+        <input id="revenueGoal" type="text" inputmode="decimal" placeholder="$1,000,000" />
+      </div>
+
+      <div class="input-box">
+        <label for="aov">Average Order Value ($) <span class="tooltip-icon" data-tooltip="aov">ℹ</span></label>
+        <input id="aov" type="text" inputmode="decimal" placeholder="$50.00" />
+      </div>
+
+      <div class="input-box">
+        <label for="conversionRate">Conversion Rate (%) <span class="tooltip-icon" data-tooltip="conversionRate">ℹ</span></label>
+        <input id="conversionRate" type="range" min="0.25" max="50" step="0.25" value="1" />
+        <div class="range-value"><span id="conversionRateValue">1.00%</span></div>
+      </div>
+    </section>
+
+    <section id="marketingMetrics" class="input-container" aria-label="Marketing Metrics">
+      <div class="input-box">
+        <label for="organicRate">Organic Page Views (%) <span class="tooltip-icon" data-tooltip="organicRate">ℹ</span></label>
+        <input id="organicRate" type="range" min="0" max="100" step="1" value="70" />
+        <div class="range-value"><span id="organicRateValue">70%</span></div>
+      </div>
+
+      <div class="input-box">
+        <label for="cpc">Estimated CPC ($) <span class="tooltip-icon" data-tooltip="cpc">ℹ</span></label>
+        <input id="cpc" type="text" inputmode="decimal" placeholder="$1.00" />
+      </div>
+
+      <div class="input-box">
+        <label for="adsConversionRate">Ads Conversion Rate (%) <span class="tooltip-icon" data-tooltip="adsConversionRate">ℹ</span></label>
+        <input id="adsConversionRate" type="range" min="0.25" max="50" step="0.25" value="2" />
+        <div class="range-value"><span id="adsConversionRateValue">2.00%</span></div>
+      </div>
+    </section>
+
+    <div class="button-container">
+      <button id="calculateButton" class="calculate-btn">Calculate Growth</button>
+      <button id="saveButton" class="save-btn" title="Saves to your browser only">Save Inputs</button>
+      <button id="shareButton" class="share-btn" title="Copy a shareable link with your inputs">Copy Shareable Link</button>
+      <button id="exportButton" class="export-btn" title="Export results as CSV">Export CSV</button>
+    </div>
+
+    <div id="saveMessage" class="save-message" hidden>Inputs saved.</div>
+
+    <section id="results" class="results" hidden aria-live="polite"></section>
+  </main>
+
+  <section class="consulting-section">
+    <h2>Join forces with our team of growth experts.</h2>
+    <p>We partner with marketplace-native and DTC brands to scale faster, outpace the competition, and position for 7-figure+ growth.</p>
+    <img src="team.png" alt="CoreTrex Team" class="team-image" />
+    <a href="https://calendly.com/coretrex/intro" class="consulting-cta" target="_blank" rel="noopener noreferrer">Book your free discovery call</a>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-info">
+        <p><span class="icon">•</span> 5506 W Walsh Ln # 202, Rogers, AR 72758 <span class="separator">|</span> <span class="icon">•</span> (479) 208-5058</p>
+      </div>
+      <small>© <span id="year"></span> CoreTrex • We make good brands <strong>great.</strong></small>
+    </div>
+  </footer>
+
+  <!-- Tooltip Modal -->
+  <div id="tooltipModal" class="modal" hidden onclick="if(event.target===this) hideTooltip()">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle"></h3>
+        <button class="modal-close" id="modalClose" onclick="hideTooltip()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p id="modalContent"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
